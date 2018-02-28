@@ -21,5 +21,5 @@ $database = getenv('DB_DATABASE');
 $username = getenv('DB_USERNAME');
 $password = getenv('DB_PASSWORD');
 
-$dsn = "mysql:host=$host;dbname=$database";
+$dsn = "mysql:host=$host;port=$port;dbname=$database";
 $conn = new PDO ($dsn, $username, $password);
