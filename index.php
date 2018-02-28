@@ -5,8 +5,13 @@
 // error, we will show you exactly what went wrong!
 // This line should be on every page you create.
 require_once('./includes/init.php');
+require_once('./includes/db.php');
 
 // Here you might connect to the database and show off some of your newest guitars.
+$statement = $conn->prepare("SELECT * FROM categories");
+$statement->execute();
+$categories = $statement->fetchAll();
+$statement->closeCursor();
 
 ?>
 
@@ -31,23 +36,29 @@ require_once('./includes/init.php');
                         <div class="row mb-5">
                             <div class="col-4">
                                 <div class="list-group mb-5" id="list-tab" role="tablist">
-                                    <a href="#list-all" class="list-group-item list-group-item-action active" id="list-all-list" data-toggle="list">All Orders</a>
-                                    <a href="#list-unshipped" class="list-group-item list-group-item-action" id="list-unshipped-list" data-toggle="list">Unshipped Orders</a>
-                                    <a href="#list-products" class="list-group-item list-group-item-action" id="list-products-list" data-toggle="list">Products</a>
+                                    <?php foreach($categories as $category): ?>
+                                        <?php if($category['categoryID'] == 1) : ?>
+                                            <a href="#list-<?= $category['categoryID'] ?>" class="list-group-item list-group-item-action active" id="list-<?= $category['categoryID'] ?>-list" data-toggle="list"><?= $category['categoryName'] ?></a>
+                                        <?php else : ?>
+                                            <a href="#list-<?= $category['categoryID'] ?>" class="list-group-item list-group-item-action" id="list-<?= $category['categoryID'] ?>-list" data-toggle="list"><?= $category['categoryName'] ?></a>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="col-8">
                                 <div class="tab-content" id="nav-tabContent">
                                     <!-- Add all the list content here -->
-                                    <div class="tab-pane fade show active" id="list-all" role="tabpane">
-                                        All Orders Content Go Here...
-                                    </div>
-                                    <div class="tab-pane fade" id="list-unshipped" role="tabpane">
-                                        All Unshipped Orders Content Go Here...
-                                    </div>
-                                    <div class="tab-pane fade" id="list-products" role="tabpane">
-                                        All Products Content Go Here...
-                                    </div>
+                                    <?php foreach($categories as $category): ?>
+                                        <?php if($category['categoryID'] == 1) : ?>
+                                            <div class="tab-pane fade show active" id="list-<?= $category['categoryID'] ?>" role="tabpane">
+                                                All <?= $category['categoryName'] ?> Content Go Here...
+                                            </div>
+                                        <?php else : ?>
+                                            <div class="tab-pane fade" id="list-<?= $category['categoryID'] ?>" role="tabpane">
+                                                All <?= $category['categoryName'] ?> Content Go Here...
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
