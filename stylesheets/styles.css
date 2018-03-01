@@ -1,0 +1,151 @@
+/* ---------------------------------------------------- */
+/* Basic Setup */
+/* ---------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeSpeed;
+}
+
+/* This will be used for some overall main variables */
+:root {
+    --main-color: #48dbfb;
+    --main-color-dark: #05c0e9;
+}
+
+/* ---------------------------------------------------- */
+/* REUSABLE */
+/* ---------------------------------------------------- */
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* -------- BUTTONS --------  */
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 5px 25px;
+    margin: 15px 0;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 0;
+    transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: #000;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    background-color: var(--main-color-dark);
+    border: 1px solid var(--main-color-dark);
+}
+
+/* -------- HEADINGS -------- */
+h1, h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-size: 220%;
+}
+
+h2 {
+    font-size: 150%;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------- */
+/* HEADER */
+/* ---------------------------------------------------- */
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/banner-img.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.header-text-box {
+    color: #fff;
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    margin: 20px 0 20px 20px;
+    float: left;
+    border-radius: 50%;
+    height: 100px;
+    width: auto;
+    /* filter: grayscale(100%); */
+    transform: rotate(13deg);
+}
+
+/* -------- NAVBAR -------- */
+.main-nav {
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 55px;
+}
+
+.main-nav li a:visited,
+.main-nav li a:link {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    position: relative;
+}
+
+.main-nav li a:visited:after,
+.main-nav li a:link:after {
+    background-color: var(--main-color);
+    content: " ";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.main-nav li a:hover:after,
+.main-nav li a:active:after {
+    width: 100%;
+    transform: scaleX(1);
+    visibility: visible;
+}

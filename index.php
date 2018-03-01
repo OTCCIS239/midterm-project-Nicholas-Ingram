@@ -18,55 +18,32 @@ $statement->closeCursor();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>This is my super awesome Guitar Shop!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+    <title>This is my super awesome Guitar Shop!</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10">
-                <div class="card mt-4">
-                    <div class="card-header bg-success text-white">
-                        Nick's Guitar Shop
-                    </div>
-                    <div class="card-body">
-                        <div class="row mb-5">
-                            <div class="col-4">
-                                <div class="list-group mb-5" id="list-tab" role="tablist">
-                                    <?php foreach($categories as $category): ?>
-                                        <?php if($category['categoryID'] == 1) : ?>
-                                            <a href="#list-<?= $category['categoryID'] ?>" class="list-group-item list-group-item-action active" id="list-<?= $category['categoryID'] ?>-list" data-toggle="list"><?= $category['categoryName'] ?></a>
-                                        <?php else : ?>
-                                            <a href="#list-<?= $category['categoryID'] ?>" class="list-group-item list-group-item-action" id="list-<?= $category['categoryID'] ?>-list" data-toggle="list"><?= $category['categoryName'] ?></a>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="tab-content" id="nav-tabContent">
-                                    <!-- Add all the list content here -->
-                                    <?php foreach($categories as $category): ?>
-                                        <?php if($category['categoryID'] == 1) : ?>
-                                            <div class="tab-pane fade show active" id="list-<?= $category['categoryID'] ?>" role="tabpane">
-                                                All <?= $category['categoryName'] ?> Content Go Here...
-                                            </div>
-                                        <?php else : ?>
-                                            <div class="tab-pane fade" id="list-<?= $category['categoryID'] ?>" role="tabpane">
-                                                All <?= $category['categoryName'] ?> Content Go Here...
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <header>
+        <nav>
+            <img src="img/logo.png" alt="Company logo" class="logo">
+            <ul class="main-nav">
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Orders</a></li>
+            </ul>
+        </nav>
+        <div class="header-text-box">
+            <h1>Nick's Guitar Shop</h1>
+            <h2>Sign up for our awesome newsletter!</h2>
+            <input type="text" class="form-control" placeholder="Email Address">
+            <a href="#" class="btn btn-full">Sign up</a>
         </div>
-    </div>
+    </header>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
