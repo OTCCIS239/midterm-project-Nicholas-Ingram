@@ -23,3 +23,53 @@ $password = getenv('DB_PASSWORD');
 
 $dsn = "mysql:host=$host;port=$port;dbname=$database";
 $conn = new PDO ($dsn, $username, $password);
+
+function getOne($query, array $binds = [])
+{
+    //Define global variables that will be needed
+    global $conn;
+
+    $statement = $conn->prepare($query);
+    foreach($binds as $key => $value) {
+        $statement->bindValue($key, $value);
+    }
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+
+    return $result;
+}
+
+function getMany($query, array $binds = [])
+{
+    //Define global variables that will be needed
+    global $conn;
+
+    $statement = $conn->prepare($query);
+    foreach($binds as $key => $value) {
+        $statement->bindValue($key, $value);
+    }
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+
+    return $results;
+}
+
+function listProducts ($products, $categoryID, $divClass="anchor-top tab-pane fade")
+{ ?>
+    <?php if($categoryID == 0): ?>
+        <div class="<?= $divClass ?>" id="list-all" role="tabpane">
+    <?php else: ?>
+        <div class="<?= $divClass ?>" id="list-cat<?= $categoryID ?>" role="tabpane">
+    <?php endif; ?>
+        <?php foreach($products as $product): ?>
+                <?php if($product['categoryID'] == $categoryID || $categoryID == 0): ?>
+                    <div href="#" class="product">
+                        <p class="product-name"><?= $product['productName'] ?></p>
+                        <p class="product-price">$<?= $product['listPrice'] ?></p>
+                    </div>
+                <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php }

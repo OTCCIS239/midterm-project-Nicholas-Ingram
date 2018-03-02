@@ -56,6 +56,19 @@ html {
     border: 1px solid var(--main-color-dark);
 }
 
+/* -------- SIDE BAR LISTS -------- */
+.side-item {
+    text-decoration: underline;
+}
+
+.active {
+    text-decoration: none;
+}
+
+.anchor-top {
+    position: absolute;
+}
+
 /* -------- HEADINGS -------- */
 h1, h2 {
     font-weight: 300;
@@ -113,6 +126,10 @@ header {
     list-style: none;
 }
 
+.secondary-nav {
+    background-color: var(--main-color);
+}
+
 .main-nav li {
     display: inline-block;
     margin-left: 40px;
@@ -148,4 +165,24 @@ header {
     width: 100%;
     transform: scaleX(1);
     visibility: visible;
+}
+
+/* ---------------------------------------------------- */
+/* PRODUCT PAGE */
+/* ---------------------------------------------------- */
+.product {
+
+}
+
+/* ---------------------------------------------------- */
+/* SECTIONS */
+/* ---------------------------------------------------- */
+.filter-section {
+    float: left;
+    width: 10%;
+}
+
+.product-section {
+    float: left;
+    width: 90%;
 }
