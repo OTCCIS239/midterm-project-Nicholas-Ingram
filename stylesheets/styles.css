@@ -56,19 +56,6 @@ html {
     border: 1px solid var(--main-color-dark);
 }
 
-/* -------- SIDE BAR LISTS -------- */
-.side-item {
-    text-decoration: underline;
-}
-
-.active {
-    text-decoration: none;
-}
-
-.anchor-top {
-    position: absolute;
-}
-
 /* -------- HEADINGS -------- */
 h1, h2 {
     font-weight: 300;
@@ -127,7 +114,11 @@ header {
 }
 
 .secondary-nav {
-    background-color: var(--main-color);
+    background-color: var(--main-color-dark);
+}
+
+.secondary-nav a {
+    color: #000;
 }
 
 .main-nav li {
@@ -174,15 +165,29 @@ header {
 
 }
 
-/* ---------------------------------------------------- */
-/* SECTIONS */
-/* ---------------------------------------------------- */
-.filter-section {
-    float: left;
+/* -------- SECTIONS -------- */
+.product-section {
+    position: relative;
+    margin-top: 40px;
     width: 10%;
+    left: 23%;
 }
 
-.product-section {
-    float: left;
-    width: 90%;
+/* -------- SIDE BAR LISTS -------- */
+.side-item:link,
+.side-item:visited {
+    margin: 20px 10px;
+    text-align: center;
+    font-size: 110%;
+    font-weight: 300;
+    color: #000;
+
+}
+
+.active {
+    border-bottom: 2px solid var(--main-color-dark);
+}
+
+.anchor-top {
+    position: absolute;
 }

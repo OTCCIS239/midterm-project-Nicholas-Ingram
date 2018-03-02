@@ -1,0 +1,7 @@
+
+<section class="product-section">
+    <?= listProducts($products, 0, "anchor-top product tab-pane fade show active"); ?>
+    <?= listProducts($products, 1) ?>
+    <?= listProducts($products, 2) ?>
+    <?= listProducts($products, 3) ?>
+</section>

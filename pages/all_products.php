@@ -28,7 +28,7 @@ $products = getMany("SELECT * FROM products");
 <body>
     <nav class="secondary-nav navbar navbar-expand-sm navbar-light mb-3 pt-0 pb-0">
       <div class="container">
-        <a class="navbar-brand" href="#">Products</a>
+        <a class="navbar-brand">Nick's Guitars - Products</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
@@ -39,24 +39,20 @@ $products = getMany("SELECT * FROM products");
         </ul>
         </div>
     </nav>
-    <section class="filter-section">
-        <div class="list-group" id="list-tab" role="tablist">
-            <!-- First create a tab pane for all the products -->
-            <a href="#list-all" class="side-item active" id="list-all-list" data-toggle="list">All Products</a>
-            <!-- Now go through each category and create a list group item for it -->
-            <?php foreach($categories as $index => $category): ?>
-                <a class="side-item"
-                    id="list-cat<?= $category['categoryID'] ?>-list"
-                    href="#list-cat<?= $category['categoryID'] ?>"
-                    data-toggle="list"><?= $category['categoryName'] ?></a>
-            <?php endforeach; ?>
-        </div>
-    </section>
     <section class="product-section">
-        <?= listProducts($products, 0, "anchor-top product tab-pane fade show active"); ?>
-        <?= listProducts($products, 1) ?>
-        <?= listProducts($products, 2) ?>
-        <?= listProducts($products, 3) ?>
+        <div class="side-bar">
+            <div class="list-group" id="list-tab" role="tablist">
+                <!-- First create a tab pane for all the products -->
+                <a href="#list-all" class="side-item active" id="list-all-list" data-toggle="list">All Products</a>
+                <!-- Now go through each category and create a list group item for it -->
+                <?php foreach($categories as $index => $category): ?>
+                    <a class="side-item"
+                        id="list-cat<?= $category['categoryID'] ?>-list"
+                        href="#list-cat<?= $category['categoryID'] ?>"
+                        data-toggle="list"><?= $category['categoryName'] ?></a>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
