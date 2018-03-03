@@ -161,33 +161,117 @@ header {
 /* ---------------------------------------------------- */
 /* PRODUCT PAGE */
 /* ---------------------------------------------------- */
-.product {
-
-}
 
 /* -------- SECTIONS -------- */
 .product-section {
-    position: relative;
-    margin-top: 40px;
-    width: 10%;
-    left: 23%;
+    width: 100vw;
+    height: auto;
+    /* position: relative;
+    left: 23%; */
 }
 
 /* -------- SIDE BAR LISTS -------- */
+.side-bar {
+    margin: 20px;
+    display: inline-block;
+    border-right: 1px solid #5d5d5d;
+    float: left;
+}
+
 .side-item:link,
 .side-item:visited {
-    margin: 20px 10px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    margin: 20px 15px;
     text-align: center;
     font-size: 110%;
     font-weight: 300;
     color: #000;
-
 }
 
-.active {
-    border-bottom: 2px solid var(--main-color-dark);
+.side-item.active {
+    border-bottom: 2px solid var(--main-color);
+}
+
+.side-item:link:after,
+.side-item:visited:after {
+    background-color: var(--main-color);
+    content: " ";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.side-item:hover:after,
+.side-item:active:after {
+    width: 100%;
+    transform: scaleX(1);
+    visibility: visible;
 }
 
 .anchor-top {
     position: absolute;
+}
+
+/* -------- PRODUCT LIST -------- */
+.product-list {
+    margin: 20px;
+    display: inline-block;
+    float: left;
+}
+
+.product-category {
+    visibility: hidden;
+    width: 95%;
+    height: auto;
+}
+
+.product-category.show {
+    visibility: visible;
+}
+
+.product {
+    margin: 20px 0 0 0;
+}
+
+.product p {
+    display: inline-block;
+}
+
+.product-name {
+    font-size: 110%;
+    font-weight: 300;
+}
+
+.product-price {
+    float: right;
+    font-size: 90%;
+    font-weight: 400;
+}
+
+.product-button:link,
+.product-button:visited {
+    margin: 0;
+    padding-top: 20px;
+    text-decoration: none;
+    color: #000;
+}
+
+.product-button:hover .product,
+.product-button:active .product {
+
+}
+
+.product-button:not(:last-child):after {
+    content: " ";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #5d5d5d;
 }

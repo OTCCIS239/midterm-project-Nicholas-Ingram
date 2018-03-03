@@ -56,7 +56,7 @@ function getMany($query, array $binds = [])
     return $results;
 }
 
-function listProducts ($products, $categoryID, $divClass="anchor-top tab-pane fade")
+function listProducts ($products, $categoryID, $divClass="anchor-top product-category tab-pane fade")
 { ?>
     <?php if($categoryID == 0): ?>
         <div class="<?= $divClass ?>" id="list-all" role="tabpane">
@@ -65,10 +65,12 @@ function listProducts ($products, $categoryID, $divClass="anchor-top tab-pane fa
     <?php endif; ?>
         <?php foreach($products as $product): ?>
                 <?php if($product['categoryID'] == $categoryID || $categoryID == 0): ?>
-                    <div href="#" class="product">
-                        <p class="product-name"><?= $product['productName'] ?></p>
-                        <p class="product-price">$<?= $product['listPrice'] ?></p>
-                    </div>
+                    <a href="#" class="product-button">
+                        <div class="product">
+                            <p class="product-name"><?= $product['productName'] ?></p>
+                            <p class="product-price">$<?= $product['listPrice'] ?></p>
+                        </div>
+                    </a>
                 <?php endif; ?>
         <?php endforeach; ?>
     </div>

@@ -39,11 +39,11 @@ $products = getMany("SELECT * FROM products");
         </ul>
         </div>
     </nav>
-    <section class="product-section">
+    <section class="row">
         <div class="side-bar">
-            <div class="list-group" id="list-tab" role="tablist">
+            <div class="list-group col span-1-of-3" id="list-tab" role="tablist">
                 <!-- First create a tab pane for all the products -->
-                <a href="#list-all" class="side-item active" id="list-all-list" data-toggle="list">All Products</a>
+                <a href="#list-all" class="side-item active show" id="list-all-list" data-toggle="list">All Products</a>
                 <!-- Now go through each category and create a list group item for it -->
                 <?php foreach($categories as $index => $category): ?>
                     <a class="side-item"
@@ -52,6 +52,12 @@ $products = getMany("SELECT * FROM products");
                         data-toggle="list"><?= $category['categoryName'] ?></a>
                 <?php endforeach; ?>
             </div>
+        </div>
+        <div class="product-list col span-2-of-3">
+            <?= listProducts($products, 0, "anchor-top product-category tab-pane fade show active"); ?>
+            <?= listProducts($products, 1) ?>
+            <?= listProducts($products, 2) ?>
+            <?= listProducts($products, 3) ?>
         </div>
     </section>
 
