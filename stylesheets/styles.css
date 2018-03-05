@@ -166,8 +166,6 @@ header {
 .product-section {
     width: 100vw;
     height: auto;
-    /* position: relative;
-    left: 23%; */
 }
 
 /* -------- SIDE BAR LISTS -------- */
@@ -236,12 +234,20 @@ header {
     visibility: visible;
 }
 
-.product {
-    margin: 20px 0 0 0;
+.product-button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 20px 10px;
+    border: none;
+    background-color: #fff;
+    text-align: left;
 }
 
-.product p {
+.product-button p {
+    text-align: left;
     display: inline-block;
+    margin: 0;
 }
 
 .product-name {
@@ -255,23 +261,34 @@ header {
     font-weight: 400;
 }
 
-.product-button:link,
-.product-button:visited {
-    margin: 0;
-    padding-top: 20px;
-    text-decoration: none;
-    color: #000;
+.product-button:hover {
+    background-color: rgba(99, 99, 99, 0.1);
+    cursor: pointer;
 }
 
-.product-button:hover .product,
-.product-button:active .product {
-
-}
-
-.product-button:not(:last-child):after {
-    content: " ";
+.product:not(:last-child):after {
+    content: "";
     position: absolute;
     height: 2px;
     width: 100%;
     background-color: #5d5d5d;
+}
+
+/* ---------------------------------------------------- */
+/* PRODUCT DETAILS PAGE */
+/* ---------------------------------------------------- */
+
+/* -------- SECTIONS -------- */
+.product-details-section {
+    width: 100vw;
+    height: auto;
+}
+
+.product-details, .buy-product {
+    float: left;
+    margin: 20px;
+}
+
+.product-details {
+    width: 65%;
 }

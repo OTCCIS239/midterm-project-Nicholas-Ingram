@@ -65,12 +65,12 @@ function listProducts ($products, $categoryID, $divClass="anchor-top product-cat
     <?php endif; ?>
         <?php foreach($products as $product): ?>
                 <?php if($product['categoryID'] == $categoryID || $categoryID == 0): ?>
-                    <a href="#" class="product-button">
-                        <div class="product">
+                    <div class="product">
+                        <button class="product-button" type="submit" name="productID" value="<?= $product['productID'] ?>">
                             <p class="product-name"><?= $product['productName'] ?></p>
                             <p class="product-price">$<?= $product['listPrice'] ?></p>
-                        </div>
-                    </a>
+                        </button>
+                    </div>
                 <?php endif; ?>
         <?php endforeach; ?>
     </div>

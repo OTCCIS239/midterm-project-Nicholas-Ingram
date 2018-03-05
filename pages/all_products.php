@@ -7,8 +7,8 @@ require_once('../includes/init.php');
 require_once('../includes/db.php');
 
 // Here you might connect to the database and show off some of your newest guitars.
-$categories = getMany("SELECT * FROM categories");
-$products = getMany("SELECT * FROM products");
+$categories = getMany('SELECT * FROM categories');
+$products = getMany('SELECT * FROM products');
 
 ?>
 
@@ -31,7 +31,7 @@ $products = getMany("SELECT * FROM products");
         <a class="navbar-brand">Nick's Guitars - Products</a>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Orders</a>
@@ -39,27 +39,29 @@ $products = getMany("SELECT * FROM products");
         </ul>
         </div>
     </nav>
-    <section class="row">
-        <div class="side-bar">
-            <div class="list-group col span-1-of-3" id="list-tab" role="tablist">
-                <!-- First create a tab pane for all the products -->
-                <a href="#list-all" class="side-item active show" id="list-all-list" data-toggle="list">All Products</a>
-                <!-- Now go through each category and create a list group item for it -->
-                <?php foreach($categories as $index => $category): ?>
-                    <a class="side-item"
-                        id="list-cat<?= $category['categoryID'] ?>-list"
-                        href="#list-cat<?= $category['categoryID'] ?>"
-                        data-toggle="list"><?= $category['categoryName'] ?></a>
-                <?php endforeach; ?>
+    <form action="product_details.php" method="get">
+        <section class="row">
+            <div class="side-bar">
+                <div class="list-group col span-1-of-3" id="list-tab" role="tablist">
+                    <!-- First create a tab pane for all the products -->
+                    <a href="#list-all" class="side-item active show" id="list-all-list" data-toggle="list">All Products</a>
+                    <!-- Now go through each category and create a list group item for it -->
+                    <?php foreach($categories as $index => $category): ?>
+                        <a class="side-item"
+                            id="list-cat<?= $category['categoryID'] ?>-list"
+                            href="#list-cat<?= $category['categoryID'] ?>"
+                            data-toggle="list"><?= $category['categoryName'] ?></a>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
-        <div class="product-list col span-2-of-3">
-            <?= listProducts($products, 0, "anchor-top product-category tab-pane fade show active"); ?>
-            <?= listProducts($products, 1) ?>
-            <?= listProducts($products, 2) ?>
-            <?= listProducts($products, 3) ?>
-        </div>
-    </section>
+            <div class="product-list col span-2-of-3">
+                <?= listProducts($products, 0, "anchor-top product-category tab-pane fade show active"); ?>
+                <?= listProducts($products, 1) ?>
+                <?= listProducts($products, 2) ?>
+                <?= listProducts($products, 3) ?>
+            </div>
+        </section>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
