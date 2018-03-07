@@ -53,10 +53,10 @@ $discounted_price_format = number_format($discountedPrice, 2, '.', ',');
                 <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a href="all_products.php" class="nav-link">Products</a>
+                <a class="nav-link" href="../pages/all_products.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Orders</a>
+                <a class="nav-link" href="../pages/all_orders.php">Orders</a>
             </li>
         </ul>
         </div>

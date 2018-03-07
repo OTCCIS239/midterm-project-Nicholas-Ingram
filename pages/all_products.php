@@ -34,7 +34,7 @@ $products = getMany('SELECT * FROM products');
                 <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Orders</a>
+                <a class="nav-link" href="../pages/all_orders.php">Orders</a>
             </li>
         </ul>
         </div>

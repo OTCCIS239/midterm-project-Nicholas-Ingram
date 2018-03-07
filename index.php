@@ -34,7 +34,7 @@ $statement->closeCursor();
             <img src="img/logo.png" alt="Company logo" class="logo">
             <ul class="main-nav">
                 <li><a href="pages/all_products.php">Products</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="pages/all_orders.php">Orders</a></li>
             </ul>
         </nav>
         <div class="header-text-box">
