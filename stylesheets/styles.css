@@ -261,6 +261,13 @@ header {
     font-weight: 400;
 }
 
+.product-outdated-price {
+    float: right;
+    font-size: 60%;
+    font-weight: 100;
+    text-decoration: line-through;
+}
+
 .product-button:hover {
     background-color: rgba(99, 99, 99, 0.1);
     cursor: pointer;
@@ -278,6 +285,25 @@ header {
 /* PRODUCT DETAILS PAGE */
 /* ---------------------------------------------------- */
 
+/* -------- HEADINGS -------- */
+.description-title, .feature-heading {
+    width: auto;
+    padding: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(99, 99, 99, 0.5);
+}
+
+.description-title {
+    font-size: 180%;
+    font-weight: 300;
+}
+
+.feature-heading {
+    font-size: 140%;
+    font-weight: 300;
+}
+
 /* -------- SECTIONS -------- */
 .product-details-section {
     width: 100vw;
@@ -291,4 +317,74 @@ header {
 
 .product-details {
     width: 65%;
+}
+
+.buy-product {
+    width: 15%;
+    position: relative;
+}
+
+/* -------- DESCRIPTION BODY -------- */
+.description p {
+    padding: 10px 30px;
+    font-size: 110%;
+    font-weight: 300;
+    word-spacing: 3px;
+    line-height: 150%;
+}
+
+.features ul {
+    padding: 10px 80px;
+    font-size: 115%;
+    font-weight: 300;
+    word-spacing: 2px;
+}
+
+.feature {
+    margin: 10px 0;
+    color: #505050;
+}
+
+/* -------- BUY SECTION -------- */
+.price-text, .price {
+    display: block;
+    font-size: 120%;
+    font-weight: 300;
+}
+
+.price-text {
+    float: left;
+}
+
+.price {
+    float: right;
+    text-align: right;
+}
+
+.price-outdated {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    text-decoration: line-through;
+    color: #696969;
+    font-size: 80%;
+    font-weight: 100;
+    padding-top: 7px;
+}
+
+.add-to-cart-btn:link,
+.add-to-cart-btn:visited {
+    display: inline-block;
+    width: 80%;
+    float: right;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    background-color: var(--main-color);
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover,
+.add-to-cart-btn:active {
+    background-color: var(--main-color-dark);
 }

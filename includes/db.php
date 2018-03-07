@@ -65,10 +65,23 @@ function listProducts ($products, $categoryID, $divClass="anchor-top product-cat
     <?php endif; ?>
         <?php foreach($products as $product): ?>
                 <?php if($product['categoryID'] == $categoryID || $categoryID == 0): ?>
+                    <?php
+                        $discount = $product['discountPercent'];
+                        $isDiscounted = ($discount > 0 ? true : false);
+                        $discountedPrice = $product['listPrice'] - (($discount / 100) * $product['listPrice']);
+
+                        $price_format = number_format($product['listPrice'], 2, '.', ',');
+                        $discounted_price_format = number_format($discountedPrice, 2, '.', ',');
+                    ?>
                     <div class="product">
                         <button class="product-button" type="submit" name="productID" value="<?= $product['productID'] ?>">
                             <p class="product-name"><?= $product['productName'] ?></p>
-                            <p class="product-price">$<?= $product['listPrice'] ?></p>
+                            <?php if($isDiscounted): ?>
+                                <p class="product-outdated-price">$<?= $price_format ?></p>
+                                <p class="product-price">$<?= $discounted_price_format ?></p>
+                            <?php else: ?>
+                                <p class="product-price">$<?= $price_format ?></p>
+                            <?php endif; ?>
                         </button>
                     </div>
                 <?php endif; ?>

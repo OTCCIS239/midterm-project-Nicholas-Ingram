@@ -12,6 +12,23 @@ $product = getOne("SELECT * FROM products WHERE productID = :product_id", [
     'product_id' => $productID
 ]);
 
+$descriptionItems = explode("Features:", $product['description']);
+$description = $descriptionItems[0];
+
+// Make sure the page has product features and if it does make sure to split the string
+$hasFeatures = false;
+if(count($descriptionItems) > 1) {
+    $features = explode("*", $descriptionItems[1]);
+    $hasFeatures = true;
+}
+
+$discount = $product['discountPercent'];
+$isDiscounted = ($discount > 0 ? true : false);
+$discountedPrice = $product['listPrice'] - (($discount / 100) * $product['listPrice']);
+
+$price_format = number_format($product['listPrice'], 2, '.', ',');
+$discounted_price_format = number_format($discountedPrice, 2, '.', ',');
+
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +63,41 @@ $product = getOne("SELECT * FROM products WHERE productID = :product_id", [
     </nav>
     <section class="product-details-section row">
         <div class="product-details span-2-of-3">
-            product details...
+            <div>
+                <h3 class="description-title">
+                    <?= $product['productName'] ?>'s Description
+                </h3>
+                <div class="description">
+                    <p><?= $description ?></p>
+                </div>
+                <?php if($hasFeatures): ?>
+                    <div class="features">
+                        <h4 class="feature-heading">
+                            FEATURES
+                        </h4>
+                        <ul>
+                            <?php foreach($features as $index => $feature): ?>
+                                <?php if($index != 0): ?>
+                                    <li class="feature"><?= $feature ?></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
         <div class="buy-product span-1-of-3">
-            product image/buy button...
+            <div>
+                <p class="price-text">Price:</p>
+                <!-- Find out if the product is discounted currently and if so show the updated price -->
+                <?php if($isDiscounted): ?>
+                    <p class="price-outdated">$<?= $price_format ?></p>
+                    <p class="price">$<?= $discounted_price_format ?></p>
+                <?php else: ?>
+                    <p class="price">$<?= $price_format ?></p>
+                <?php endif; ?>
+            </div>
+            <a href="#" class="add-to-cart-btn">Add To Cart</a>
         </div>
     </section>
 </body>
