@@ -9,6 +9,14 @@ require_once('../includes/db.php');
 // Here you might connect to the database and show off some of your newest guitars.
 $orders = getMany("SELECT * FROM orders");
 
+// Get all the customers in the database
+$customersSQL = getMany("SELECT * FROM customers");
+// Now add al the customers to an array that is based on their customerID
+$customerNames = [];
+foreach($customersSQL as $customer) {
+    $customerNames += [$customer['customerID'] => $customer['firstName']." ".$customer['lastName']];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,15 +47,22 @@ $orders = getMany("SELECT * FROM orders");
         </div>
     </nav>
     <form action="order_details.php" method="get">
-        <section class="row">
+        <section class="row order-section">
             <div class="side-bar">
                 <div class="list-group col span-1-of-3" id="list-tab" role="tablist">
                     <a href="#list-all" class="side-item active show" id="list-all-list" data-toggle="list">All Orders</a>
                     <a href="#list-unship" class="side-item" id="list-unship-list" data-toggle="list">Unshipped Orders</a>
                 </div>
             </div>
-            <div class="product-list col span-2-of-3">
-                orders go here...
+            <div class="order-list col span-2-of-3">
+                <div class="order-list-head">
+                    <p class="order-id">Order #</p>
+                    <p class="customer-name">Customer Name</p>
+                    <p class="order-date">Order Date</p>
+                    <p class="shipped-date">Shipped Date</p>
+                </div>
+                <?= listOrders($orders, $customerNames, "all", "anchor-top order-category tab-pane fade show active") ?>
+                <?= listOrders($orders, $customerNames, "unship") ?>
             </div>
         </section>
     </form>

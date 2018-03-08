@@ -250,6 +250,11 @@ header {
     margin: 0;
 }
 
+.product-button:hover {
+    background-color: rgba(99, 99, 99, 0.1);
+    cursor: pointer;
+}
+
 .product-name {
     font-size: 110%;
     font-weight: 300;
@@ -266,11 +271,6 @@ header {
     font-size: 60%;
     font-weight: 100;
     text-decoration: line-through;
-}
-
-.product-button:hover {
-    background-color: rgba(99, 99, 99, 0.1);
-    cursor: pointer;
 }
 
 .product:not(:last-child):after {
@@ -294,7 +294,7 @@ header {
     border-bottom: 1px solid rgba(99, 99, 99, 0.5);
 }
 
-.description-title {
+.description-title {7
     font-size: 180%;
     font-weight: 300;
 }
@@ -388,3 +388,98 @@ header {
 .add-to-cart-btn:active {
     background-color: var(--main-color-dark);
 }
+
+/* ---------------------------------------------------- */
+/* ORDER PAGE */
+/* ---------------------------------------------------- */
+
+/* -------- SECTIONS -------- */
+
+/* -------- ORDER LIST -------- */
+.order-list {
+    margin: 60px 20px 20px 20px;
+    display: inline-block;
+    float: left;
+}
+
+.order-category {
+    visibility: hidden;
+    width: 100%;
+    height: auto;
+}
+
+.order-category.show {
+    visibility: visible;
+}
+
+.order:not(:last-child):after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #5d5d5d;
+}
+
+.order-button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0px 5px 20px;
+    border: none;
+    background-color: #fff;
+    text-align: left;
+}
+
+.order-button:hover {
+    cursor: pointer;
+    background-color: rgba(99, 99, 99, 0.1);
+}
+
+.order-list-head {
+    padding-left: 20px;
+    visibility: visible;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transform: translateY(-51px);
+    border-bottom: 1px solid #5d5d5d;
+}
+
+.order-id, .customer-name, .order-date, .shipped-date {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.order-id, .customer-name, .order-date {
+    text-align: left;
+}
+
+.order-id {
+    width: 10%;
+}
+
+.customer-name {
+    width: 55%;
+}
+
+.order-date, .shipped-date {
+    font-size: 90%;
+    width: 14%;
+}
+
+.shipped-date {
+    text-align: right;
+}
+
+.order-list-head * {
+    border-right: 1px solid #5d5d5d;
+    text-align: center;
+}
+
+/*.order-id, .customer-name {
+    float: left;
+}
+
+.order-date, .shipped-date {
+    float: right;
+} */

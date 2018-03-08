@@ -88,3 +88,36 @@ function listProducts ($products, $categoryID, $divClass="anchor-top product-cat
         <?php endforeach; ?>
     </div>
 <?php }
+
+function listOrders ($orders, $customers, $categoryID, $divClass="anchor-top order-category tab-pane fade")
+{ ?>
+    <div class="<?= $divClass ?>" id="list-<?= $categoryID ?>" role="tabpane">
+        <?php foreach($orders as $order): ?>
+                <?php if($order['shipDate'] == null || $categoryID == "all"): ?>
+                    <?php
+                        $orderDate = explode(' ', $order['orderDate'])[0];
+                        $orderDateExp = explode('-', $orderDate);
+                        $orderDate_form = $orderDateExp[0]."/".$orderDateExp[1]."/".$orderDateExp[2];
+
+                        if($order['shipDate'] != null) {
+                            $shipDate = explode(' ', $order['shipDate'])[0];
+                            $shipDateExp = explode('-', $shipDate);
+                            $shipDate_form = $shipDateExp[0]."/".$shipDateExp[1]."/".$shipDateExp[2];
+                        }
+                     ?>
+                    <div class="order">
+                        <button class="order-button" type="submit" name="orderID" value="<?= $order['orderID'] ?>">
+                            <p class="order-id"><?= $order['orderID'] ?></p>
+                            <p class="customer-name"><?= $customers[$order['customerID']] ?></p>
+                            <p class="order-date"><?= $orderDate_form ?></p>
+                            <?php if($order['shipDate'] == null): ?>
+                                <p class="shipped-date">Unshipped</p>
+                            <?php else: ?>
+                                <p class="shipped-date"><?= $shipDate_form ?></p>
+                            <?php endif; ?>
+                        </button>
+                    </div>
+                <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php }
