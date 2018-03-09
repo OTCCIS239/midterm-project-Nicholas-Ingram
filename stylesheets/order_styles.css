@@ -1,0 +1,138 @@
+/* ---------------------------------------------------- */
+/* ORDER PAGE */
+/* ---------------------------------------------------- */
+
+/* -------- SECTIONS -------- */
+.order-section {
+    max-width: 1600px;
+}
+
+/* -------- ORDER LIST -------- */
+.order-list {
+    margin: 60px 20px 20px 20px;
+    display: inline-block;
+    float: left;
+}
+
+.order-category {
+    visibility: hidden;
+    width: 100%;
+    height: auto;
+}
+
+.order-category.show {
+    visibility: visible;
+}
+
+.order:not(:last-child):after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #5d5d5d;
+}
+
+.order-button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0px 5px 20px;
+    border: none;
+    background-color: #fff;
+    text-align: left;
+}
+
+.order-button:hover {
+    cursor: pointer;
+    background-color: rgba(99, 99, 99, 0.1);
+}
+
+.order-list-head {
+    padding-left: 20px;
+    visibility: visible;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transform: translateY(-51px);
+    border-bottom: 1px solid #5d5d5d;
+}
+
+.order-id, .customer-name, .order-date, .shipped-date, .customer-email {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.order-id {
+    width: 10%;
+}
+
+.customer-name, .customer-email {
+    width: 30%;
+}
+
+.order-date, .shipped-date {
+    font-size: 90%;
+    width: 14%;
+}
+
+.order-list-head * {
+    border-right: 1px solid #5d5d5d;
+}
+
+/* ---------------------------------------------------- */
+/* ORDER DETAILS PAGE */
+/* ---------------------------------------------------- */
+
+/* -------- SECTIONS -------- */
+.order-details {
+    margin-top: 60px;
+}
+
+/* -------- HEADINGS -------- */
+h3 {
+    font-size: 170%;
+    font-weight: 300;
+    width: auto;
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(99, 99, 99, 0.5);
+    text-transform: uppercase;
+}
+
+/* -------- CUSTOMER INFO -------- */
+.customer-info {
+    width: 65%;
+    padding-right: 20px;
+}
+
+.lbl, .lbl-text {
+    padding: 10px 40px;
+    font-size: 110%;
+    font-weight: 300;
+}
+
+.lbl {
+    float: left;
+    color: #818181;
+}
+
+/* -------- ORDERED ITEMS -------- */
+.ordered-items {
+    margin-bottom: 40px;
+}
+
+/* -------- ORDER INFO -------- */
+.order-info {
+    width: 35%;
+    padding-left: 20px;
+}
+
+.order-info .lbl, .order-info .lbl-text {
+    padding: 0 40px;
+}
+
+.order-info .lbl-text {
+    float: right;
+}

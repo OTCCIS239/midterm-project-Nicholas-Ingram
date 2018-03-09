@@ -12,9 +12,12 @@ $orders = getMany("SELECT * FROM orders");
 // Get all the customers in the database
 $customersSQL = getMany("SELECT * FROM customers");
 // Now add al the customers to an array that is based on their customerID
-$customerNames = [];
+$customersInfo = [];
 foreach($customersSQL as $customer) {
-    $customerNames += [$customer['customerID'] => $customer['firstName']." ".$customer['lastName']];
+    $customerInfo = [];
+    $customerInfo[0] = $customer['firstName']." ".$customer['lastName'];
+    $customerInfo[1] = $customer['emailAddress'];
+    $customersInfo += [$customer['customerID'] => $customerInfo];
 }
 
 ?>
@@ -30,6 +33,7 @@ foreach($customersSQL as $customer) {
     <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
     <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/order_styles.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
 </head>
 <body>
@@ -58,11 +62,12 @@ foreach($customersSQL as $customer) {
                 <div class="order-list-head">
                     <p class="order-id">Order #</p>
                     <p class="customer-name">Customer Name</p>
+                    <p class="customer-email">Customer Email</p>
                     <p class="order-date">Order Date</p>
                     <p class="shipped-date">Shipped Date</p>
                 </div>
-                <?= listOrders($orders, $customerNames, "all", "anchor-top order-category tab-pane fade show active") ?>
-                <?= listOrders($orders, $customerNames, "unship") ?>
+                <?= listOrders($orders, $customersInfo, "all", "anchor-top order-category tab-pane fade show active") ?>
+                <?= listOrders($orders, $customersInfo, "unship") ?>
             </div>
         </section>
     </form>

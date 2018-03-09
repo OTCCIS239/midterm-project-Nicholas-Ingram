@@ -108,7 +108,8 @@ function listOrders ($orders, $customers, $categoryID, $divClass="anchor-top ord
                     <div class="order">
                         <button class="order-button" type="submit" name="orderID" value="<?= $order['orderID'] ?>">
                             <p class="order-id"><?= $order['orderID'] ?></p>
-                            <p class="customer-name"><?= $customers[$order['customerID']] ?></p>
+                            <p class="customer-name"><?= $customers[$order['customerID']][0] ?></p>
+                            <p class="customer-email"><?= $customers[$order['customerID']][1] ?></p>
                             <p class="order-date"><?= $orderDate_form ?></p>
                             <?php if($order['shipDate'] == null): ?>
                                 <p class="shipped-date">Unshipped</p>
