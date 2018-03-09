@@ -12,7 +12,7 @@ $orderID = $_GET['orderID'];
 $order = getOne("SELECT * FROM orders WHERE orderID = :order_id", [
     'order_id' => $orderID
 ]);
-$orderItems = getMany("SELECT * FROM orderitems WHERE orderID = :order_id", [
+$orderItems = getMany("SELECT * FROM orderItems WHERE orderID = :order_id", [
     'order_id' => $orderID
 ]);
 $customer = getOne("SELECT * FROM customers WHERE customerID = :customer_id", [
